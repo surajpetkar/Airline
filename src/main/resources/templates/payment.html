@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/master-page}">
+
+<body>
+	<th:block layout:fragment="content">
+		<div class="row justify-content-md-center">
+			<div class="col-md-4 jumbotron">
+
+				<div class="row">
+					<th:block th:if="${invalidCard !=null}">
+						<div class="col-12">
+							<p
+								style="text-align: center; margin-top: 30px; color: red; font-weight: bold">Sorry,
+								Card is not Valid!</p>
+						</div>
+					</th:block>
+				</div>
+
+				<h2 style="text-align: center">Payment</h2>
+				<!-- @{/payment/new(flightId=${flight.flightId})} -->
+				<form name="payment" th:action="@{/payment/new}" method="post">
+
+					<div th:if="${param.paid}"
+						class="alert alert-dismissible alert-success">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						Ticket booked Successfully...
+					</div>
+
+					<div class="form-group">
+						<label for="txtCardNumber">Card Number</label> <input
+							id="txtCardNumber" name="cardNumber" type="number"
+							class="form-control" autofocus="autofocus" required />
+					</div>
+					<div class="form-group">
+						<label for="txtMonth">Month</label> <select name="month"
+							class="form-control" autofocus="autofocus" required>
+							<option  value="" style="display: none;" selected disabled>MM</option>
+							<option  value="Jan">Jan</option>
+							<option  value="Feb">Feb</option>
+							<option  value="Mar">Mar</option>
+							<option  value="Apr">Apr</option>
+							<option  value="May">May</option>
+							<option  value="Jun">Jun</option>
+							<option  value="Jul">Jul</option>
+							<option  value="Aug">Aug</option>
+							<option  value="Sep">Sep</option>
+							<option  value="Oct">Oct</option>
+							<option  value="Nov">Nov</option>
+							<option  value="Dec">Dec</option>
+						</select><!--  <input id="txtMonth" name="month" type="number"
+							class="form-control" autofocus="autofocus" required /> -->
+					</div>
+					<div class="form-group">
+						<label for="txtYear">Year</label> 
+						<select name="year"
+							class="form-control" autofocus="autofocus" required>
+							<option  value="" style="display: none;" selected disabled>YY</option>
+							<option  value="2022">2022</option>
+							<option  value="2023">2023</option>
+							<option  value="2024">2024</option>
+							<option  value="2025">2025</option>
+							<option  value="2026">2026</option>
+							<option  value="2027">2027</option>
+							<option  value="2028">2028</option>
+							<option  value="2029">2029</option>
+							<option  value="2030">2030</option>
+							</select>
+						<!-- <input id="txtYear" name="year"
+							type="number" class="form-control" autofocus="autofocus" required /> -->
+					</div>
+					<div class="form-group">
+						<label for="txtCvv">CVV</label>
+						<!-- <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                          class="alert alert-danger"></span> -->
+						<input id="txtCvv" name="cvv" type="password" class="form-control"
+							required />
+					</div>
+					<div style="float: right;">
+						<a href="/" class="btn btn-outline-warning">Cancel Payment</a>&nbsp;&nbsp;&nbsp;
+						<a th:href="@{/payment/new}"><button
+								class="btn btn-outline-success">Make Payment</button></a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</th:block>
+</body>
+</html>
