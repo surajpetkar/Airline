@@ -2,7 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/master-page}">
+<head>
+<script>
+function date(){
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+	var yyyy = today.getFullYear();
+	if(dd<10){
+	  dd='0'+dd
+	} 
+	if(mm<10){
+	  mm='0'+mm
+	} 
 
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("departureTime").setAttribute("min", today);
+}
+</script>
+</head>
 <body>
 <th:block layout:fragment="content">
     <div class="row">
@@ -41,7 +59,7 @@
             <div class="form-group col-md-4">
                 <label class="col-form-label" for="departureTime">Departure Time</label>
                 <input type="date" class="form-control" placeholder="" id="departureTime"
-                       name="departureTime" required>
+                       name="departureTime" onclick="return date()" required>
             </div>
 
 

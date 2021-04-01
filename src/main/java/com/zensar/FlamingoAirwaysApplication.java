@@ -10,6 +10,7 @@ public class FlamingoAirwaysApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FlamingoAirwaysApplication.class, args);
+		System.out.println("Hello");
 	}
 
 	@Override

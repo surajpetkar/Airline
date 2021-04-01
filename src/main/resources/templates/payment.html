@@ -30,58 +30,70 @@
 
 					<div class="form-group">
 						<label for="txtCardNumber">Card Number</label> <input
-							id="txtCardNumber" name="cardNumber" type="number"
-							class="form-control" autofocus="autofocus" required />
+							id="txtCardNumber" name="cardNumber" type="text"
+							class="form-control" autofocus="autofocus" maxlength="12"
+							pattern="\d{12}" title="minimum 12 digits are required" required />
 					</div>
 					<div class="form-group">
 						<label for="txtMonth">Month</label> <select name="month"
 							class="form-control" autofocus="autofocus" required>
-							<option  value="" style="display: none;" selected disabled>MM</option>
-							<option  value="Jan">Jan</option>
-							<option  value="Feb">Feb</option>
-							<option  value="Mar">Mar</option>
-							<option  value="Apr">Apr</option>
-							<option  value="May">May</option>
-							<option  value="Jun">Jun</option>
-							<option  value="Jul">Jul</option>
-							<option  value="Aug">Aug</option>
-							<option  value="Sep">Sep</option>
-							<option  value="Oct">Oct</option>
-							<option  value="Nov">Nov</option>
-							<option  value="Dec">Dec</option>
-						</select><!--  <input id="txtMonth" name="month" type="number"
+							<option value="" style="display: none;" selected disabled>MM</option>
+							<option value="Jan">Jan</option>
+							<option value="Feb">Feb</option>
+							<option value="Mar">Mar</option>
+							<option value="Apr">Apr</option>
+							<option value="May">May</option>
+							<option value="Jun">Jun</option>
+							<option value="Jul">Jul</option>
+							<option value="Aug">Aug</option>
+							<option value="Sep">Sep</option>
+							<option value="Oct">Oct</option>
+							<option value="Nov">Nov</option>
+							<option value="Dec">Dec</option>
+						</select>
+						<!--  <input id="txtMonth" name="month" type="number"
 							class="form-control" autofocus="autofocus" required /> -->
 					</div>
 					<div class="form-group">
-						<label for="txtYear">Year</label> 
-						<select name="year"
+						<label for="txtYear">Year</label> <select name="year"
 							class="form-control" autofocus="autofocus" required>
-							<option  value="" style="display: none;" selected disabled>YY</option>
-							<option  value="2022">2022</option>
-							<option  value="2023">2023</option>
-							<option  value="2024">2024</option>
-							<option  value="2025">2025</option>
-							<option  value="2026">2026</option>
-							<option  value="2027">2027</option>
-							<option  value="2028">2028</option>
-							<option  value="2029">2029</option>
-							<option  value="2030">2030</option>
-							</select>
+							<option value="" style="display: none;" selected disabled>YY</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+							<option value="2026">2026</option>
+							<option value="2027">2027</option>
+							<option value="2028">2028</option>
+							<option value="2029">2029</option>
+							<option value="2030">2030</option>
+						</select>
 						<!-- <input id="txtYear" name="year"
 							type="number" class="form-control" autofocus="autofocus" required /> -->
 					</div>
 					<div class="form-group">
-						<label for="txtCvv">CVV</label>
+						<label for="txtCvv">CVV</label> 
 						<!-- <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
                           class="alert alert-danger"></span> -->
+                          <div style="float: right;"><img src="https://www.shredstationva.com/images/cvv-visa.gif"
+							width="40" height="28" border="0" /></div>
 						<input id="txtCvv" name="cvv" type="password" class="form-control"
-							required />
+							pattern="\d{3}" maxlength="3"
+							title="minimum 3 digits are required" required />
 					</div>
+
 					<div style="float: right;">
 						<a href="/" class="btn btn-outline-warning">Cancel Payment</a>&nbsp;&nbsp;&nbsp;
-						<a th:href="@{/payment/new}"><button
-								class="btn btn-outline-success">Make Payment</button></a>
+						<a th:href="@{/payment/new}"><input type="submit"
+							class="btn btn-outline-success" value="Make Payment" /></a>
 					</div>
+					<br><br><br>
+					<div class="form-group">
+						<img alt="Credit Card Logos" title="Credit Card Logos"
+							src="https://www.shift4shop.com/images/credit-card-logos/cc-md-4.png"
+							width="309" height="38" border="0" />
+					</div>
+			
 				</form>
 			</div>
 		</div>
