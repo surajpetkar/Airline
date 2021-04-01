@@ -12,7 +12,6 @@ public class FlamingoAirwaysApplication extends SpringBootServletInitializer {
 		SpringApplication.run(FlamingoAirwaysApplication.class, args);
 	}
 
-	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(FlamingoAirwaysApplication.class);
