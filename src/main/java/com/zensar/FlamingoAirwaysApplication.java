@@ -10,7 +10,7 @@ public class FlamingoAirwaysApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FlamingoAirwaysApplication.class, args);
-		System.out.println("Auto Triggering");
+		System.out.println("Auto Triggered");
 	}
 
 	
